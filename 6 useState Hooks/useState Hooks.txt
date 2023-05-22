@@ -1,0 +1,78 @@
+React Hooks Fundamentals for Beginners
+React Hooks are simple JavaScript functions that we can use to isolate the reusable part from a functional component. Hooks can be stateful and can manage side-effects.
+
+
+link:
+https://legacy.reactjs.org/docs/hooks-reference.html#usestate
+
+
+
+const [state, setState] = useState(initialState);
+Returns a stateful value, and a function to update it.
+
+During the initial render, the returned state (state) is the same as the value passed as the first argument (initialState).
+
+The setState function is used to update the state. It accepts a new state value and enqueues a re-render of the component.
+
+setState(newState);
+
+
+
+
+
+ex:
+
+import React, { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  function increase() {
+    setCount(count + 1);
+  }
+
+  function decrease() {
+    setCount(count - 1);
+  }
+
+  return (
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={decrease}>-</button>
+      <button onClick={increase}>+</button>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+other example to display time every second(and also by clicking button we can update time):
+
+https://codesandbox.io/s/usestate-hook-practice-forked-1074ms?file=/src/components/App.jsx
+
+import React, { useState } from "react";
+
+function App() {
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  function updateTime() {
+    setTime(new Date().toLocaleTimeString());
+  }
+
+  //updates time each second by calling setTime() every second
+  setInterval(updateTime, 1000);
+
+  return (
+    <div className="container">
+      <h1>{time}</h1>
+      <button onClick={updateTime}>Get Time</button>
+    </div>
+  );
+}
+
+export default App;

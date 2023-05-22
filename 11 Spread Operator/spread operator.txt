@@ -1,0 +1,69 @@
+adding one array/object to other array/object
+
+
+const citrus = ["Lime", "Lemon", "Orange"];
+const fruits = ["Apple", ...citrus, "Banana", "Coconut"];
+
+now fruits will be ["Apple", "Lime", "Lemon", "Orange", "Banana", "Coconut"]
+
+
+const fullName = {
+  fName: "James",
+  lName: "Bond"
+};
+
+const user = {
+  ...fullName,
+  id: 1,
+  username: "jamesbond007"
+};
+
+
+now user will be,
+const user = {
+  fName: "James",
+  lName: "Bond",
+  id: 1,
+  username: "jamesbond007"
+};
+
+
+
+
+
+
+
+simplifies this,
+
+setFullName(prevValue => {
+    if (name === "fName") {
+      return {
+        fName: value,
+        lName: prevValue.lName
+      };
+    } else if (name === "lName") {
+      return {
+        fName: prevValue.fName,
+        lname: value
+      };
+    }
+});
+
+
+
+
+to
+
+
+setContact(prevValue => {
+   return {
+       ...prevValue,
+       [name]: value
+   };
+});
+
+
+https://codesandbox.io/s/es6-spread-operator-completed-forked-ih0b9v?file=/src/components/App.jsx:233-334
+
+
+

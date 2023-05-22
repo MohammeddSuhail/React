@@ -1,0 +1,180 @@
+npx create-react-app my-app
+
+cd to my-app
+
+npm start
+
+
+
+
+
+
+
+
+JSX(JavaScript Exxtension):
+Combo of JS and HTML
+
+
+
+in index.js this will be there:
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root') //says inside root element put the above code(at fist it's it's just app)
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{some javascript code }
+
+
+
+
+
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  let myVariable = 200;
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        {88+12}
+        {myVariable}
+        
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We can make components in 2 ways :
+Class based components
+Function based components
+
+
+Function based components
+
+
+rfc
+rafc
+
+
+
+JSX must be enclosed in opening closing tag
+If no ytag is there just put it in 
+<>
+Some jsx 
+</>
+
+
+
+
+
+IN JSX it's className not class
+
+Tags which doesn't have cclosing tag put /
+like,
+<input    />
+
+
+
+
+Use Bootstrap react
+
+
+
+
+
+
+
+
+props:
+Is used to pass JS objects from parent compnent to child component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Using the State Hook: For updating the things on screen
+
+https://reactjs.org/docs/hooks-state.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+React Router:
+For making a page(.js  (Javascript react)) change without reload
+
+npm install react-router-dom in treminal
+
+https://v5.reactrouter.com/web/guides/quick-start
+
+
+
+Replace all href= with to= and <a   with Link

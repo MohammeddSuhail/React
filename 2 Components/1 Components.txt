@@ -1,0 +1,159 @@
+Breaking the code into components for reusing and increasing compatibility
+
+
+name components in pascal case(i.e, first letter capital)
+
+
+
+https://codesandbox.io/s/react-components-forked-swhwtc?file=/src/index.js
+
+
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+function Heading() { 
+  return <h1>My Favourite Foods</h1>;
+}
+
+ReactDOM.render(
+  <div>
+    <Heading />
+    <ul>
+      <li>Bacon</li>
+      <li>Jamon</li>
+      <li>Noodles</li>
+    </ul>
+  </div>,
+  document.getElementById("root")
+);
+
+
+
+
+ex:
+
+
+Heading.jsx component:
+
+import React from "react";
+
+function Heading() {
+  return <h1>My Favourite Foods</h1>;
+}
+
+export default Heading;
+
+
+
+
+List.jsx component:
+
+import React from "react";
+
+function List() {
+  return (
+    <ul>
+      <li>Bacon</li>
+      <li>Noodles</li>
+    </ul>
+  );
+}
+
+export default List;
+
+
+
+
+Index.js:
+
+import React from "react";
+import ReactDOM from "react-dom";
+import Heading from "./Components/Heading";
+import List from "./Components/List";
+
+ReactDOM.render(
+  <div>
+    <Heading />
+    <List />
+    <List />
+  </div>,
+  document.getElementById("root")
+);
+
+
+
+
+
+
+
+
+other ex:
+
+components:
+
+Heading.jsx:
+
+import React from "react";
+
+function Heading() {
+  const date = new Date();
+  const currentTime = date.getHours();
+
+  let greeting;
+
+  const customStyle = {
+    color: ""
+  };
+
+  if (currentTime < 12) {
+    greeting = "Good Morning";
+    customStyle.color = "red";
+  } else if (currentTime < 18) {
+    greeting = "Good Afternoon";
+    customStyle.color = "green";
+  } else {
+    greeting = "Good Night";
+    customStyle.color = "blue";
+  }
+
+  return (
+    <h1 className="heading" style={customStyle}>
+      {greeting}
+    </h1>
+  );
+}
+
+export default Heading;
+
+
+
+
+
+
+App.jsx:
+
+import React from "react";
+import Heading from "./Heading";
+
+function App() {
+  return (
+    <div>
+      <Heading />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+index.js:
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./components/App";
+
+ReactDOM.render(<App />, document.getElementById("root"));
+
+

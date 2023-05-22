@@ -1,0 +1,185 @@
+JSX: allows HTML in the body of a javascript file and then js inside that html file
+
+
+                       what                 where                        when(optinal)   
+ReactDOM.render(<h1>Hello World!</h1>, document.getElementById("root")); 
+
+react converts that to vanilla javascript as follows
+
+document.createElement("h1"); 
+var h1 h1.innerHTML = "Hello World!"; 
+document.getElementById("root").appendChild(hl);
+
+
+
+
+
+
+
+
+https://codesandbox.io/s/introduction-to-jsx-forked-lfvdu5?file=/src/index.js:0-454
+
+
+index.js:
+
+import React from "react";
+import ReactDom from "react-dom";
+
+const poke = "Pokemon";
+const fname = "Mohammed";
+const lname = "Suhail";
+
+//   parameters(what, where, when(optional) to show
+ReactDom.render(
+  <div>
+    <h1>{poke}</h1>
+    <ul>
+      <li>Medicham</li>
+      <li>Excadrill</li>
+      <li>Golduck</li>
+    </ul>
+    <p>Total {1 + 1 + 1} pokemons</p>
+    <p> My Name: {fname + " " + lname} </p>
+  </div>,
+  document.getElementById("root")
+);
+
+
+//inside {} can have variables and expressions
+
+
+index.html:
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JSX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script src="../src/index.js" type="text/JSX"></script>
+  </body>
+</html>
+
+
+
+
+
+
+IN JSX for putting attribute for html elements use camel case for attribute name like className (ex: contentEditable)
+
+
+
+
+to add css put className="somethingInCssFile"
+
+
+
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+ReactDOM.render(
+  <div>
+    <h1>pokemons</h1>
+    <div>
+      <img
+        className="imgSize"
+        src="https://cdn.mos.cms.futurecdn.net/aTPgBQfCA5wbrhUWVyFqWc.jpg"
+      />
+      <img
+        className="imgSize"
+        src="https://in.portal-pokemon.com/play/resources/pokedex/img/pm/0aa78a0061bda9d88cbb0bbf739cd9cc56522fe9.png"
+      />
+      <img
+        className="imgSize"
+        src="https://sportshub.cbsistatic.com/i/2021/11/06/e4276865-aeec-4d8c-abf1-437cadf3580d/pokemon-journeys-mega-lucario-ash.jpg"
+      />
+    </div>
+  </div>,
+  document.getElementById("root")
+);
+
+
+
+
+
+
+inline style:
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const myStyle = {
+  color: "red",
+  fontSize: "20px"
+};
+
+ReactDOM.render(
+  <h1 style={myStyle}>Hello World!</h1>,
+  document.getElementById("root")
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Create a React app from scratch.
+//Show a single h1 that says "Good morning" if between midnight and 12PM.
+//or "Good Afternoon" if between 12PM and 6PM.
+//or "Good evening" if between 6PM and midnight.
+//Apply the "heading" style in the styles.css
+//Dynamically change the color of the h1 using inline css styles.
+//Morning = red, Afternoon = green, Night = blue.
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+
+const date = new Date();
+const currentTime = date.getHours();
+
+let greeting;
+
+const customStyle = {
+  color: ""
+};
+
+if (currentTime < 12) {
+  greeting = "Good Morning";
+  customStyle.color = "red";
+} else if (currentTime < 18) {
+  greeting = "Good Afternoon";
+  customStyle.color = "green";
+} else {
+  greeting = "Good Night";
+  customStyle.color = "blue";
+}
+
+ReactDOM.render(
+  <h1 className="heading" style={customStyle}>
+    {greeting}
+  </h1>,
+  document.getElementById("root")
+);
+
+
+

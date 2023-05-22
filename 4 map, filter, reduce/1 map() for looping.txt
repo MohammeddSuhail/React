@@ -1,0 +1,118 @@
+map() for looping through
+
+
+array.map(function_that_does_something_with_each_element_of_array)
+
+it will return a new array, which can be captured
+
+var numbers = [3, 56, 2, 48, 5];
+
+Map -Create a new array by doing something with each item in an array.
+
+function double(x) {
+  return x * 2;
+}
+const newNumbers = numbers.map(double);
+
+
+
+
+
+contacts.map(createCard)
+
+here contacts is arrays of objects
+map function will pass each element of contacts(in this case object) to createCard function
+
+***
+while using map
+the repeated Component must have a unique property called key(which will not be considered as prop)
+
+
+
+
+
+ex:
+
+
+before:
+
+import React from "react";
+import Card from "./Card";
+import contacts from "../contacts";
+
+function App() {
+  return (
+    <div>
+      <h1 className="heading">My Contacts</h1>
+
+      <Card
+        name={contacts[0].name}
+        img={contacts[0].imgURL}
+        tel={contacts[0].phone}
+        email={contacts[0].email}
+      />
+      <Card
+        name={contacts[1].name}
+        img={contacts[1].imgURL}
+        tel={contacts[1].phone}
+        email={contacts[1].email}
+      />
+      <Card
+        name={contacts[2].name}
+        img={contacts[2].imgURL}
+        tel={contacts[2].phone}
+        email={contacts[2].email}
+      />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+after using map:
+
+import React from "react";
+import Card from "./Card";
+import contacts from "../contacts";
+
+function createCard(contact) {
+  return (
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      email={contact.email}
+    />
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <h1 className="heading">My Contacts</h1>
+
+      {contacts.map(createCard)}
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+

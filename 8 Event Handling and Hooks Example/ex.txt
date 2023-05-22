@@ -1,0 +1,32 @@
+changing background color of button to black when hover else white
+
+
+import React, { useState } from "react";
+
+function App() {
+  const [backColor, setBackColor] = useState("white");
+
+  function setBackBlack() {
+    setBackColor("black");
+  }
+
+  function setBackWhite() {
+    setBackColor("white");
+  }
+
+  return (
+    <div className="container">
+      <h1>Hello</h1>
+      <input type="text" placeholder="What's your name?" />
+      <button
+        style={{ backgroundColor: backColor }}
+        onMouseOver={setBackBlack}
+        onMouseOut={setBackWhite}
+      >
+        Submit
+      </button>
+    </div>
+  );
+}
+
+export default App;

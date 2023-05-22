@@ -1,0 +1,75 @@
+https://codesandbox.io/s/es6-spread-operator-practice-forked-m233hd?file=/src/components/App.jsx
+
+
+app.jsx:
+
+import React, { useState } from "react";
+import ToDoItem from "./ToDoItem";
+
+function App() {
+  const [inputText, setInputText] = useState("");
+  const [items, setItems] = useState([]);
+
+  function updateInputText(event) {
+    setInputText(event.target.value);
+  }
+
+  function addItem() {
+    setItems((prevItems) => {
+      return [...prevItems, inputText];
+    });
+    setInputText("");
+  }
+
+  function displayItems(item, index) {
+    return <ToDoItem key={index} itemName={item} />;
+  }
+
+  return (
+    <div className="container">
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+      <div className="form">
+        <input onChange={updateInputText} value={inputText} type="text" />
+        <button onClick={addItem}>
+          <span>Add</span>
+        </button>
+      </div>
+      <div>
+        <ul>{items.map(displayItems)}</ul>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+ToDoItem.jsx component:
+
+import React, { useState } from "react";
+
+function ToDoItem(props) {
+  const [markItem, setMarkItem] = useState(false);
+
+  function updateMarked() {
+    setMarkItem((prevSate) => {
+      return !prevSate;
+    });
+  }
+
+  return (
+    <li
+      style={{ textDecoration: markItem ? "line-through" : null }}
+      onClick={updateMarked}
+    >
+      {props.itemName}
+    </li>
+  );
+}
+
+export default ToDoItem;
+
+

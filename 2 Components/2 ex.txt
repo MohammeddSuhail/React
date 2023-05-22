@@ -1,0 +1,85 @@
+components:
+
+
+Header.jsx:
+
+import React from 'react';
+
+function Header(){
+    return (
+        <header>
+            <h1>Keeper</h1>
+        </header>
+    );
+}
+
+export default Header
+
+
+
+Note.jsx:
+
+import React from 'react';
+
+function Note(){
+    return (
+        <div className="note">
+            <h1>Note Title</h1>
+            <p>Note information</p>
+        </div>);
+}
+
+export default Note
+
+
+
+Footer.jsx:
+
+import React from 'react';
+
+const currentYear = new Date().getFullYear();
+
+function Footer(){
+    return (
+        <footer>
+            <p>Cpyright ⓒ {currentYear}</p>
+        </footer>
+    );
+}
+
+export default Footer
+
+
+
+App.jsx:
+
+import React from 'react';
+import Header from './Header';
+import Note from './Note';
+import Footer from './Footer';
+
+function App(){
+    return (
+        <div>
+            <Header/>
+            <Note/>
+            <Footer/>
+        </div>
+    );
+}
+
+export default App
+
+
+
+
+index.js:
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+
+
+ReactDOM.render(<App/>,document.getElementById('root'));
+
+

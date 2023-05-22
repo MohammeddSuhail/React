@@ -1,0 +1,69 @@
+child component:
+trying to activate function present in onChecked property of parent
+
+
+import React from "react";
+
+function ToDoItem(props) {
+  return (
+    <div
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
+    >
+      <li>{props.text}</li>
+    </div>
+  );
+}
+
+export default ToDoItem;
+
+
+
+we didn't write
+
+<div
+      onClick={props.onChecked(props.id);}
+>
+
+instead of 
+
+<div
+      onClick={() => {
+        props.onChecked(props.id);
+      }}
+>
+
+
+because function(some parameter) will call the function directly, even if we don'y click
+just functionName will call only when specified
+
+but here we need function with parameter so we put 
+function(some parameter) 
+inside new function's body, so it will only be called when clicked
+
+
+
+
+parent component:
+
+......
+
+function deleteItem(id) {
+    setItems(prevItems => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
+....
+
+items.map((todoItem, index) => (
+            <ToDoItem
+              key={index}
+              id={index}
+              text={todoItem}
+              onChecked={deleteItem}
+            />
+))
